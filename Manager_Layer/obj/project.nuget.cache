@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "25gyYjOaL5m59l3yrNh2qtx3yx4+0+Ssvv7ZTzpAAhT3c6h5BachYQHEvECPsRc4i3fLQXgNex7zRJO15zGhHw==",
+  "dgSpecHash": "L1fV6wz/zVXOOZmBm/Gh32Iai9k9WpDt/e3dL0iIi0voI16aPjn5ol0OzCTjmaLdBnLfLtTCpsHPSK5M5pW/Pg==",
   "success": true,
   "projectFilePath": "/Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/Manager_Layer/Manager_Layer.csproj",
   "expectedPackageFiles": [
     "/Users/prince/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/Users/prince/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
+    "/Users/prince/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/prince/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/prince/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/Users/prince/.nuget/packages/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg.sha512",

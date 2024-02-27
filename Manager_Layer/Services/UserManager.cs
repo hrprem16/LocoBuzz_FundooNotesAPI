@@ -20,6 +20,10 @@ namespace Manager_Layer.Services
 
 		}
 
+		public UserEntity UserLogin(LoginModel model)
+		{
+			return repository.UserLogin(model);
+		}
 
 
 	}

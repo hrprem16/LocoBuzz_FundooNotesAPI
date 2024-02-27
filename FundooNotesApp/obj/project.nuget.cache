@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dUDthwtku0J6ZUgzatPImi7Xu5KV72BG6CiafvzRPmDh4/EUem47bZswYcI5Os9ND59oYYqoWMQjG8RmXitCMQ==",
+  "dgSpecHash": "841Kd1po9PUcTJH80IT3F1vUkjqPu/PStVMU/OkpJ5WV7JCffpCNmUJpRJmcA+flLDTZHt66GMFph3PvTVCAug==",
   "success": true,
   "projectFilePath": "/Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp/FundooNotesApp.csproj",
   "expectedPackageFiles": [
     "/Users/prince/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/Users/prince/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
+    "/Users/prince/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/prince/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/prince/.nuget/packages/microsoft.aspnetcore.openapi/7.0.16/microsoft.aspnetcore.openapi.7.0.16.nupkg.sha512",
     "/Users/prince/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

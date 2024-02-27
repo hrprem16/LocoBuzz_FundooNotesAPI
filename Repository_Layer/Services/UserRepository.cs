@@ -25,9 +25,9 @@ namespace Repository_Layer.Services
                 entity.FName = model.FName;
 				entity.LName = model.LName;
                 entity.UserEmail = model.UserEmail;
-                entity.UserPassword = model.UserPassword;
+                entity.UserPassword = BCrypt.Net.BCrypt.HashPassword(model.UserPassword);
 
-				context.UserTable.Add(entity);
+                context.UserTable.Add(entity);
 				context.SaveChanges();
 				return entity;
 
@@ -35,6 +35,32 @@ namespace Repository_Layer.Services
             }
 			else{
 				throw new Exception("User Already Exists ,Enter another id for Registration");
+			}
+		}
+
+		public UserEntity UserLogin(LoginModel model)
+		{
+			var user = context.UserTable.FirstOrDefault(a => a.UserEmail == model.UserEmail);
+
+			if (user != null)
+			{
+				UserEntity userEntity = new UserEntity();
+				if (BCrypt.Net.BCrypt.Verify(model.UserPassword, user.UserPassword))
+				{
+					userEntity.UserId = user.UserId;
+					userEntity.FName = user.FName;
+					userEntity.LName = user.LName;
+					userEntity.UserEmail = user.UserEmail;
+					return userEntity;
+				}
+				else
+				{
+					throw new Exception("Invalid Password");
+				}
+			}
+			else
+			{
+				throw new Exception("User Not Found");
 			}
 		}
 
