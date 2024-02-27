@@ -15,6 +15,7 @@ namespace Repository_Layer.Interfaces
 		public ForgetPasswordModel ForgetPassword(string Email);
 		public bool checker(string Email);
 
+		public bool ResetPassword(string Email, ResetPasswordModel resetPassword);
 
     }
 }
