@@ -80,3 +80,4 @@
 /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp/bin/Debug/net7.0/Common_Layer.pdb
 /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp/bin/Debug/net7.0/Manager_Layer.dll
 /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp/bin/Debug/net7.0/Manager_Layer.pdb
+/Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp/bin/Debug/net7.0/BCrypt.Net-Next.dll

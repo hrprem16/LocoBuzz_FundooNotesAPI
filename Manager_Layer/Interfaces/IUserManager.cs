@@ -8,6 +8,7 @@ namespace Manager_Layer.Interfaces
 	{
         public UserEntity UserRegistration(RegisterModel model);
 
+        public UserEntity UserLogin(LoginModel model);
     }
 }
 
