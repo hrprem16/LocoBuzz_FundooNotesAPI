@@ -7,6 +7,7 @@ namespace Common_Layer.RequestModels
 
 		public string UserPassword { get; set; }
 
+
 	}
 }
 

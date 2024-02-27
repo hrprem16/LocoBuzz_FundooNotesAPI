@@ -10,6 +10,8 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
           "Common_Layer": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.0",
+          "Microsoft.AspNetCore.OpenApi": "7.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "7.0.0",
@@ -67,6 +69,28 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.21.0"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51819"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.OpenApi/7.0.0": {
+        "dependencies": {
+          "Microsoft.OpenApi": "1.4.3"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.OpenApi.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51819"
           }
         }
       },
@@ -214,12 +238,6 @@
       "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0"
-        },
-        "runtime": {
-          "lib/net7.0/Microsoft.Extensions.Caching.Abstractions.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
         }
       },
       "Microsoft.Extensions.Caching.Memory/7.0.0": {
@@ -229,44 +247,19 @@
           "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
           "Microsoft.Extensions.Options": "7.0.0",
           "Microsoft.Extensions.Primitives": "7.0.0"
-        },
-        "runtime": {
-          "lib/net7.0/Microsoft.Extensions.Caching.Memory.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
         }
       },
       "Microsoft.Extensions.Configuration.Abstractions/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0"
-        },
-        "runtime": {
-          "lib/net7.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
         }
       },
       "Microsoft.Extensions.DependencyInjection/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
-        },
-        "runtime": {
-          "lib/net7.0/Microsoft.Extensions.DependencyInjection.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
-        "runtime": {
-          "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
-        }
-      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {},
       "Microsoft.Extensions.DependencyModel/7.0.0": {
         "dependencies": {
           "System.Text.Encodings.Web": "7.0.0",
@@ -285,42 +278,16 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
           "Microsoft.Extensions.Options": "7.0.0"
-        },
-        "runtime": {
-          "lib/net7.0/Microsoft.Extensions.Logging.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/7.0.0": {
-        "runtime": {
-          "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
-        }
-      },
+      "Microsoft.Extensions.Logging.Abstractions/7.0.0": {},
       "Microsoft.Extensions.Options/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
           "Microsoft.Extensions.Primitives": "7.0.0"
-        },
-        "runtime": {
-          "lib/net7.0/Microsoft.Extensions.Options.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
         }
       },
-      "Microsoft.Extensions.Primitives/7.0.0": {
-        "runtime": {
-          "lib/net7.0/Microsoft.Extensions.Primitives.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
-        }
-      },
+      "Microsoft.Extensions.Primitives/7.0.0": {},
       "Microsoft.Identity.Client/4.45.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Abstractions": "6.21.0"
@@ -413,6 +380,14 @@
       },
       "Microsoft.NETCore.Platforms/5.0.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.OpenApi/1.4.3": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
+            "assemblyVersion": "1.4.3.0",
+            "fileVersion": "1.4.3.0"
+          }
+        }
+      },
       "Microsoft.SqlServer.Server/1.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.SqlServer.Server.dll": {
@@ -723,6 +698,20 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q2suMVl1gO6rBJkV7rxm0F2sBufValm2RKxY3zoWN4y6cAufDJYmzpLWPKju3kKFJFKNgivWgoTw0dvf4W5QDQ==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/7.0.0",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.7.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.OpenApi/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P1mkNhZ3IwU3phNLIUkgqVXb1exnooTalIYwpSON3oKKkcRtACDgS4WpO+xnwFw4KzV0bmgkUqB3acXxIefvvg==",
+      "path": "microsoft.aspnetcore.openapi/7.0.0",
+      "hashPath": "microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512"
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
       "serviceable": true,
@@ -939,6 +928,13 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.OpenApi/1.4.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rURwggB+QZYcSVbDr7HSdhw/FELvMlriW10OeOzjPT7pstefMo7IThhtNtDudxbXhW+lj0NfX72Ka5EDsG8x6w==",
+      "path": "microsoft.openapi/1.4.3",
+      "hashPath": "microsoft.openapi.1.4.3.nupkg.sha512"
     },
     "Microsoft.SqlServer.Server/1.0.0": {
       "type": "package",
