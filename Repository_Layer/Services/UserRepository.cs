@@ -121,6 +121,20 @@ namespace Repository_Layer.Services
 			return false;
 		}
 
+		public bool ResetPassword(string Email, ResetPasswordModel resetPassword)
+		{
+			UserEntity user = context.UserTable.FirstOrDefault(a => a.UserEmail == Email);
+
+			if (user != null)
+			{
+				user.UserPassword= BCrypt.Net.BCrypt.HashPassword(resetPassword.UserPassword);
+                context.SaveChanges();
+				return true;
+
+            }
+			return false;
+		}
+
     }
 }
 

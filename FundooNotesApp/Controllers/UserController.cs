@@ -5,6 +5,7 @@ using Common_Layer.ResponseModel;
 using Common_Layer.Utility;
 using Manager_Layer.Interfaces;
 using MassTransit;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repository_Layer.Entity;
 
@@ -86,12 +87,42 @@ namespace FundooNotesApp.Controllers
                     throw new Exception("Failed to send email");
                 }
             }
-            catch (Exception er)
+            catch (Exception ex)
             {
-                return BadRequest(new ResModel<string> { Success = true, Message = er.Message, Data = null });
+                return BadRequest(new ResModel<string> { Success = true, Message = ex.Message, Data = null });
             }
 
         }
+		[Authorize]
+		[HttpPost]
+		[Route("ResetPassword")]
+
+		public ActionResult ResetPassword(ResetPasswordModel resetPassword)
+		{
+			try
+			{
+				string Email = User.FindFirst("Email").Value;
+                if (userManager.ResetPassword(Email,resetPassword))
+                {
+
+                    return Ok(new ResModel<bool> { Success = true, Message = "Password Reset successfully", Data = true });
+
+
+                }
+                else
+                {
+					return BadRequest(new ResModel<bool> { Success = false, Message = "Failed to reset", Data = false });
+
+                }
+            }
+
+			catch(Exception ex)
+			{
+                return BadRequest(new ResModel<bool> { Success = true, Message = ex.Message, Data = false });
+
+            }
+		}
+
 
 
 

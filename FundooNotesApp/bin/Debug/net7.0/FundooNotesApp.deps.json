@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "FundooNotesApp/1.0.0": {
         "dependencies": {
+          "Common_Layer": "1.0.0",
           "Manager_Layer": "1.0.0",
           "MassTransit": "6.2.5",
           "MassTransit.AspNetCore": "6.2.5",
