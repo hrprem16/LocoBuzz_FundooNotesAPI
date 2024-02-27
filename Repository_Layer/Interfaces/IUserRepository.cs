@@ -8,7 +8,14 @@ namespace Repository_Layer.Interfaces
 	{
 		public UserEntity UserRegistration(RegisterModel model);
 
-		public UserEntity UserLogin(LoginModel model);		
-	}
+		//public UserEntity UserLogin(LoginModel model); -- due to token we chnage UserEntity to String
+
+		public string UserLogin(LoginModel model);
+
+		public ForgetPasswordModel ForgetPassword(string Email);
+		public bool checker(string Email);
+
+
+    }
 }
 

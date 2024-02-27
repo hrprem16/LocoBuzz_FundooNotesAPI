@@ -20,12 +20,21 @@ namespace Manager_Layer.Services
 
 		}
 
-		public UserEntity UserLogin(LoginModel model)
+		public string UserLogin(LoginModel model)
 		{
 			return repository.UserLogin(model);
 		}
+        public ForgetPasswordModel ForgetPassword(string Email)
+		{
+			return repository.ForgetPassword(Email);
+;		}
+
+        public bool checker(string Email)
+		{
+			return repository.checker(Email);
+		}
 
 
-	}
+    }
 }
 

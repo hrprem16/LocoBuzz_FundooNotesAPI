@@ -2,7 +2,9 @@
 using Azure;
 using Common_Layer.RequestModels;
 using Common_Layer.ResponseModel;
+using Common_Layer.Utility;
 using Manager_Layer.Interfaces;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Repository_Layer.Entity;
 
@@ -13,10 +15,12 @@ namespace FundooNotesApp.Controllers
 	public class UserController : ControllerBase
     {
 		private readonly IUserManager userManager;
+		private readonly IBus bus;
 
-		public UserController(IUserManager userManager)
+		public UserController(IUserManager userManager,IBus bus)
 		{
 			this.userManager = userManager;
+			this.bus = bus;
 		}
 		[HttpPost]
 		[Route("Reg")]
@@ -50,19 +54,48 @@ namespace FundooNotesApp.Controllers
 				var response = userManager.UserLogin(model);
 				if (response != null)
 				{
-					return Ok(new ResModel<UserEntity> { Success = true, Message = "Login Succuessfully", Data = response });
+					return Ok(new ResModel<string> { Success = true, Message = "Login Succuessfully", Data = response });
 				}
 				else{
-					return BadRequest(new ResModel<UserEntity> { Success = false, Message = "Login Failed", Data = response });
+					return BadRequest(new ResModel<string> { Success = false, Message = "Login Failed", Data = response });
 				}
 			}
 			catch(Exception ex)
 			{
-				return BadRequest(new ResModel<UserEntity> { Success = false ,Message=ex.Message,Data=null});
+				return BadRequest(new ResModel<string> { Success = false ,Message=ex.Message,Data=null});
 			}
 		}
 
-	}
+		[HttpPost]
+		[Route("Forget Password")]
+        public async Task<ActionResult> ForgetPassword(string Email)
+        {
+            try
+            {
+                if (userManager.checker(Email))
+                {
+                    Send send = new Send();
+                    ForgetPasswordModel model = userManager.ForgetPassword(Email);
+                    string str = send.SendMail(model.UserEmail, model.token);
+                    Uri uri = new Uri("rabbitmq://localhost/FundooNotesEmailQueue");
+                    var endpoint = await bus.GetSendEndpoint(uri);
+                    return Ok(new ResModel<string> { Success = true, Message = "Forget password successful", Data = model.token });
+                }
+                else
+                {
+                    throw new Exception("Failed to send email");
+                }
+            }
+            catch (Exception er)
+            {
+                return BadRequest(new ResModel<string> { Success = true, Message = er.Message, Data = null });
+            }
+
+        }
+
+
+
+    }
 
 }
 
