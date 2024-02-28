@@ -20,6 +20,16 @@ namespace Manager_Layer.Services
             return noteRepository.NoteCreation(userId,addNotes);
         }
 
+        public bool DeleteNote(int NoteId)
+        {
+            return this.noteRepository.DeleteNote(NoteId);
+        }
+
+        public List<NoteEntity> DisplayNotes(int userId)
+        {
+            return this.noteRepository.DisplayNotes(userId);
+        }
+
     }
 }
 

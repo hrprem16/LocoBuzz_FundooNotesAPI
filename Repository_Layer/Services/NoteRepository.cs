@@ -43,10 +43,55 @@ namespace Repository_Layer.Services
         }
 
 
-        //public List<NoteEntity> GetAllNotes(FundoContext context)
-        //{
+        public bool DeleteNote(int NoteId)
+        {
+            try
+            {
+                var note = context.NoteSTable.FirstOrDefault(a => a.NoteId == NoteId);
 
-        //}
+                if (note != null)
+                {
+                    context.NoteSTable.Remove(note);
+                    context.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch
+            {
+                throw new Exception("Note is not deleted");
+            }
+           
+        }
+
+        public List<NoteEntity> DisplayNotes(int userId)
+        {
+            try
+            {
+                var userNotes = context.NoteSTable.Where(a => a.UserId == userId).ToList();
+
+                if (userNotes != null)
+                {
+                    //List<NoteEntity> noteEntities = new List<NoteEntity>();
+
+                   
+                    return userNotes;
+                }
+                else
+                {
+                    throw new Exception("User Not Found");
+                }
+
+            }
+            catch
+            {
+                throw new Exception("User Not Found");
+            }
+        }
     }
 }
 

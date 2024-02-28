@@ -14,8 +14,10 @@ namespace FundooNotesApp.Controllers
 	public class NoteController:ControllerBase
 	{
 		public readonly INoteManager noteManager;
+		
 
-		public NoteController(INoteManager noteManager)
+
+        public NoteController(INoteManager noteManager)
 		{
 			this.noteManager = noteManager;
 		}
@@ -44,6 +46,56 @@ namespace FundooNotesApp.Controllers
                 return BadRequest(new ResModel<NoteEntity> { Success = false, Message = ex.Message, Data = null});
             }
 		}
+
+		[Authorize]
+		[HttpDelete]
+		[Route("DeleteNote")]
+		public ActionResult DeleteNote(int NoteId)
+		{
+			try
+			{
+				var response = noteManager.DeleteNote(NoteId);
+				if (response != null)
+				{
+                    return Ok(new ResModel<bool> { Success = true, Message = "Note Deleted SuccessFully", Data =true });
+                }
+				else
+				{
+                    return BadRequest(new ResModel<bool> { Success = false, Message = "Note not Deleted", Data = false });
+                }
+
+			}
+			catch
+			{
+                return BadRequest(new ResModel<bool> { Success = false, Message = "Note not Deleted", Data = false });
+            }
+		}
+		[Authorize]
+		[HttpGet]
+		[Route("GetAllNotes")]
+
+		public ActionResult GetAllNotes()
+		{
+            var userId = Convert.ToInt32(User.FindFirst("UserId").Value);
+            try
+			{
+				var response = noteManager.DisplayNotes(userId);
+				if (response != null)
+				{
+                    return Ok(new ResModel<List<NoteEntity>> { Success = true, Message = "Display All Notes SuccessFully", Data = response });
+                }
+				else
+				{
+                    return BadRequest(new ResModel<List<NoteEntity>> { Success = false, Message = "Display Notes UnSuccessFully", Data = response });
+                }
+
+			}
+			catch
+			{
+                return BadRequest(new ResModel<List<NoteEntity>> { Success = false, Message = "Display Notes UnSuccessFully", Data = null });
+            }
+		}
+
 
 	}
 }
