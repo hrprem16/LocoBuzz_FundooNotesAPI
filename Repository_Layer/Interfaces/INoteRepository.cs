@@ -11,9 +11,8 @@ namespace Repository_Layer.Interfaces
         public NoteEntity NoteCreation(int userId, AddNoteModel addNote);
 
 
-        //public int NoteDeletion()
-
-        //public List<NoteEntity> GetAllNotes(FundoContext context);
+        public bool DeleteNote(int NoteId);
+        public List<NoteEntity> DisplayNotes(int userId);
 
 
     }
