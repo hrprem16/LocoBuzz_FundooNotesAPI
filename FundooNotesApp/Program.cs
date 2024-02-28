@@ -40,6 +40,8 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserManager, UserManager>();
+builder.Services.AddTransient<INoteManager, NoteManager>();
+builder.Services.AddTransient<INoteRepository, NoteRepository>();
 builder.Services.AddControllers();
 
 
