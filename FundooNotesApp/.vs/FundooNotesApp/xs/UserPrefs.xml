@@ -1,7 +1,63 @@
 ﻿<Properties StartupConfiguration="{E0E5490F-1D65-4E40-AD47-761062D6320E}|https">
-  <MonoDevelop.Ide.ItemProperties.Common__Layer FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Manager__Layer FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.FundooNotesApp PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Repository__Layer FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.FundooNotesApp FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="../Repository_Layer/Class1.cs" />
+      <File FileName="../Manager_Layer/Class1.cs" />
+      <File FileName="../Common_Layer/Class1.cs" />
+      <File FileName="../Repository_Layer/Entity/UserEntity.cs" Line="17" Column="1" />
+      <File FileName="../Repository_Layer/Context/FundoContext.cs" Line="12" Column="4" />
+      <File FileName="appsettings.json" Line="15" Column="5" />
+      <File FileName="Program.cs" Line="41" Column="1" />
+      <File FileName="../Repository_Layer/Services/UserRepository.cs" Line="16" Column="40" />
+      <File FileName="../Repository_Layer/Interfaces/IUserRepository.cs" />
+      <File FileName="../Common_Layer/RequestModels/RegisterModel.cs" />
+      <File FileName="../Manager_Layer/Interfaces/IUserManager.cs" />
+      <File FileName="../Manager_Layer/Services/UserManager.cs" />
+      <File FileName="Properties/launchSettings.json" />
+      <File FileName="Controllers/UserController.cs" Line="47" Column="4" />
+      <File FileName="../Common_Layer/ResponseModel/ResModel.cs" Line="6" Column="9" />
+      <File FileName="../Common_Layer/RequestModels/LoginModel.cs" />
+      <File FileName="../Common_Layer/Utility/Send.cs" />
+      <File FileName="../Common_Layer/RequestModels/ForgetPasswordModel.cs" />
+      <File FileName="../Common_Layer/RequestModels/ResetPasswordModel.cs" />
+      <File FileName="../Repository_Layer/Entity/NoteEntity.cs" />
+      <File FileName="../Repository_Layer/Interfaces/INoteRepository.cs" />
+      <File FileName="../Repository_Layer/Services/NoteRepository.cs" />
+      <File FileName="../Common_Layer/RequestModels/DeleteNoteModel.cs" />
+      <File FileName="../Manager_Layer/Interfaces/INoteManager.cs" />
+      <File FileName="../Manager_Layer/Services/NoteManager.cs" />
+      <File FileName="Controllers/NoteController.cs" />
+      <File FileName="Controllers/WeatherForecastController.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FundooNotesApp">
+            <Node name="Common_Layer" expanded="True">
+              <Node name="ResponseModel" expanded="True" />
+              <Node name="Utility" expanded="True" />
+            </Node>
+            <Node name="FundooNotesApp" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+            <Node name="Repository_Layer">
+              <Node name="Entity" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
 </Properties>
