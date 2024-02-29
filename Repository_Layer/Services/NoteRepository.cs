@@ -22,6 +22,7 @@ namespace Repository_Layer.Services
 
                 note.UserId = user.UserId;
                 note.NoteText = addNote.NoteText;
+                note.NoteDescription = addNote.NoteDescription;
                 note.Colour = addNote.Colour;
                 note.IsArchive = addNote.IsArchive;
                 note.IsPin = addNote.IsPin;
@@ -92,6 +93,36 @@ namespace Repository_Layer.Services
                 throw new Exception("User Not Found");
             }
         }
+
+        public NoteEntity UpdateNote(int noteId, string newNoteDescription, string newNoteText)
+        {
+            try
+            {
+                // Find the note to update
+                var updateNote = context.NoteSTable.FirstOrDefault(a => a.NoteId == noteId);
+
+                if (updateNote != null)
+                {
+                    // Update the properties
+                    updateNote.NoteDescription = newNoteDescription;
+                    updateNote.NoteText = newNoteText;
+
+                    // Update the entity in the database
+                    context.NoteSTable.Update(updateNote);
+                    context.SaveChanges(); // Commit changes to the database
+
+                    return updateNote; // Return the updated entity if needed
+                }
+            }
+            catch 
+            {
+                // Handle exceptions (log, throw, etc.)
+                throw new Exception("Note is not updated");
+            }
+
+            return null; // Return null if the note with the specified ID is not found
+        }
+
     }
 }
 

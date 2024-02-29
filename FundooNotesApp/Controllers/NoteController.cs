@@ -96,6 +96,34 @@ namespace FundooNotesApp.Controllers
             }
 		}
 
+		[Authorize]
+		[HttpPut]
+		[Route("UpdateNote")]
+
+		public ActionResult UpdateNotes(int noteId, string newDescription, string newNoteTitle)
+		{
+			try
+			{
+				var response = noteManager.UpdateNote(noteId, newDescription, newNoteTitle);
+				if (response != null)
+				{
+                    return Ok(new ResModel<NoteEntity> { Success = true, Message = "Note Update SuccessFully", Data = response });
+                }
+				else
+				{
+					return BadRequest(new ResModel<NoteEntity> { Success = true, Message = "Note Update UnSuccessfully", Data = response });
+
+				}
+            }
+			
+			catch
+			{
+				return BadRequest(new ResModel<NoteEntity> { Success = true, Message = "Note Update UnSuccessfully", Data = null });
+
+
+            }
+        }
+
 
 	}
 }

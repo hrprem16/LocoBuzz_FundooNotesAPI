@@ -13,6 +13,7 @@ namespace Repository_Layer.Interfaces
 
         public bool DeleteNote(int NoteId);
         public List<NoteEntity> DisplayNotes(int userId);
+        public NoteEntity UpdateNote(int noteId, string newNoteDescription, string newNoteText);
 
 
     }

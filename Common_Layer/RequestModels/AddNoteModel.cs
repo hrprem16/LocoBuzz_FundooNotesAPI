@@ -5,6 +5,7 @@ namespace Common_Layer.RequestModels
 	{
         
         public string NoteText { get; set; }
+        public string NoteDescription { get; set; }
         public string Colour { get; set; }
         public string Image { get; set; }
         public string IsArchive { get; set; }
