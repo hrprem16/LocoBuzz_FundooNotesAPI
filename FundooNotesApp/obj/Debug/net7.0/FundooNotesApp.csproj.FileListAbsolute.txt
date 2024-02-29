@@ -93,3 +93,4 @@
 /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp/bin/Debug/net7.0/Newtonsoft.Json.dll
 /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
 /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp/bin/Debug/net7.0/RabbitMQ.Client.dll
+/Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp/bin/Debug/net7.0/CloudinaryDotNet.dll

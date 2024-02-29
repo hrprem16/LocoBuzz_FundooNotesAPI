@@ -12,6 +12,7 @@ namespace Repository_Layer.Entity
 		public int NoteId { get; set; }
 
         public string NoteText { get; set; }
+        public string NoteDescription { get; set;}
         public string Colour { get; set; }
         public string Image { get; set; }
         public string IsArchive { get; set; }

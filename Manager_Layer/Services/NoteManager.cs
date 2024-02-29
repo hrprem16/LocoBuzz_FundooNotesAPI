@@ -29,6 +29,10 @@ namespace Manager_Layer.Services
         {
             return this.noteRepository.DisplayNotes(userId);
         }
+        public NoteEntity UpdateNote(int noteId, string newNoteDescription, string newNoteText)
+        {
+            return this.noteRepository.UpdateNote(noteId, newNoteDescription, newNoteText);
+        }
 
     }
 }
