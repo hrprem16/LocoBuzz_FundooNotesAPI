@@ -124,12 +124,14 @@ namespace Repository_Layer.Services
 
             return null; // Return null if the note with the specified ID is not found
         }
-        public bool IsArchive(int noteId)
+        public bool IsArchive(int userId,int noteId)
         {
-            var findNotes = context.NoteSTable.FirstOrDefault(e => e.NoteId == noteId);
-            if (findNotes != null)
+            var filterUser = context.NoteSTable.Where(a => a.UserId == userId);
+            
+            if (filterUser != null)
             {
-               
+                var findNotes = filterUser.FirstOrDefault(e => e.NoteId == noteId);
+
                 if (findNotes.IsArchive == false)
                 {
                     findNotes.IsArchive = true;
@@ -149,12 +151,14 @@ namespace Repository_Layer.Services
                 throw new Exception("Note Note Found");
             }
         }
-        public bool IsPin(int noteId)
+        public bool IsPin(int userId,int noteId)
         {
-            var findNotes = context.NoteSTable.FirstOrDefault(e => e.NoteId == noteId);
-            if (findNotes != null)
+            var filterUser = context.NoteSTable.Where(a => a.UserId == userId);
+
+           
+            if (filterUser != null)
             {
-                
+                var findNotes = filterUser.FirstOrDefault(e => e.NoteId == noteId);
                 if (findNotes.IsPin == false)
                 {
                     findNotes.IsPin = true;
@@ -174,12 +178,12 @@ namespace Repository_Layer.Services
                 throw new Exception("Note not pinned yet");
             }
         }
-        public bool IsTrash(int noteId)
+        public bool IsTrash(int userId,int noteId)
         {
-            var findNotes = context.NoteSTable.FirstOrDefault(e => e.NoteId == noteId);
-            if (findNotes != null)
+            var filterUser = context.NoteSTable.Where(a => a.UserId == userId);
+            if (filterUser != null)
             {
-                
+                var findNotes = filterUser.FirstOrDefault(e => e.NoteId == noteId);
                 if (findNotes.IsTrash == false)
                 {
                     findNotes.IsTrash = true;
@@ -199,6 +203,8 @@ namespace Repository_Layer.Services
                 throw new Exception("Note not found in Trash");
             }
         }
+
+       
     }
 
     

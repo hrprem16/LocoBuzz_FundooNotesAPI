@@ -127,11 +127,11 @@ namespace FundooNotesApp.Controllers
 		[Authorize]
 		[HttpPut]
 		[Route("NoteArchive")]
-		public ActionResult NoteArchive(int noteId)
+		public ActionResult NoteArchive(int userid,int noteId)
 		{
 			try
 			{
-				var response = noteManager.IsArchive(noteId);
+				var response = noteManager.IsArchive(userid,noteId);
 				if (response != null)
 				{
                     return Ok(new ResModel<bool> { Success = true, Message = "Note Archive SuccessFully", Data = response });
@@ -151,11 +151,11 @@ namespace FundooNotesApp.Controllers
         [Authorize]
         [HttpPut]
         [Route("NotePin")]
-        public ActionResult NotePin(int noteId)
+        public ActionResult NotePin(int userid, int noteId)
         {
             try
             {
-                var response = noteManager.IsPin(noteId);
+                var response = noteManager.IsPin(userid, noteId);
                 if (response != null)
                 {
                     return Ok(new ResModel<bool> { Success = true, Message = "Note has been Pinned", Data = response });
@@ -175,11 +175,11 @@ namespace FundooNotesApp.Controllers
         [Authorize]
         [HttpPut]
         [Route("NoteTrash")]
-        public ActionResult NoteTrash(int noteId)
+        public ActionResult NoteTrash(int userid, int noteId)
         {
             try
             {
-                var response = noteManager.IsTrash(noteId);
+                var response = noteManager.IsTrash(userid, noteId);
                 if (response != null)
                 {
                     return Ok(new ResModel<bool> { Success = true, Message = "Note has been  Trashed", Data = response });

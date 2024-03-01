@@ -34,17 +34,17 @@ namespace Manager_Layer.Services
             return this.noteRepository.UpdateNote(noteId, newNoteDescription, newNoteText);
         }
 
-        public bool IsArchive(int noteId)
+        public bool IsArchive(int userId,int noteId)
         {
-            return this.noteRepository.IsArchive(noteId);
+            return this.noteRepository.IsArchive(userId,noteId);
         }
-        public bool IsPin(int noteId)
+        public bool IsPin(int userId,int noteId)
         {
-            return this.noteRepository.IsPin(noteId);
+            return this.noteRepository.IsPin(userId,noteId);
         }
-        public bool IsTrash(int noteId)
+        public bool IsTrash(int userId,int noteId)
         {
-            return this.noteRepository.IsTrash(noteId);
+            return this.noteRepository.IsTrash(userId,noteId);
         }
 
 
