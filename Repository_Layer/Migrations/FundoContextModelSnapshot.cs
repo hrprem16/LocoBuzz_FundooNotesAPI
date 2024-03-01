@@ -41,23 +41,20 @@ namespace RepositoryLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IsArchive")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsArchive")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("IsPin")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsPin")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("IsTrash")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsTrash")
+                        .HasColumnType("bit");
 
                     b.Property<string>("NoteDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NoteText")
+                    b.Property<string>("NoteTitle")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

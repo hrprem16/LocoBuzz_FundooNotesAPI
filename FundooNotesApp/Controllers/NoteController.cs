@@ -124,7 +124,78 @@ namespace FundooNotesApp.Controllers
             }
         }
 
+		[Authorize]
+		[HttpPut]
+		[Route("NoteArchive")]
+		public ActionResult NoteArchive(int noteId)
+		{
+			try
+			{
+				var response = noteManager.IsArchive(noteId);
+				if (response != null)
+				{
+                    return Ok(new ResModel<bool> { Success = true, Message = "Note Archive SuccessFully", Data = response });
+                }
+				else
+				{
+                    return BadRequest(new ResModel<bool> { Success = false, Message ="Note is not Archived", Data = response });
+                }
 
-	}
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResModel<bool> { Success = false, Message = ex.Message, Data = false});
+            }
+        }
+
+        [Authorize]
+        [HttpPut]
+        [Route("NotePin")]
+        public ActionResult NotePin(int noteId)
+        {
+            try
+            {
+                var response = noteManager.IsPin(noteId);
+                if (response != null)
+                {
+                    return Ok(new ResModel<bool> { Success = true, Message = "Note has been Pinned", Data = response });
+                }
+                else
+                {
+                    return BadRequest(new ResModel<bool> { Success = false, Message = "Note is not Pinned", Data = response });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResModel<bool> { Success = false, Message = ex.Message, Data = false });
+            }
+        }
+
+        [Authorize]
+        [HttpPut]
+        [Route("NoteTrash")]
+        public ActionResult NoteTrash(int noteId)
+        {
+            try
+            {
+                var response = noteManager.IsTrash(noteId);
+                if (response != null)
+                {
+                    return Ok(new ResModel<bool> { Success = true, Message = "Note has been  Trashed", Data = response });
+                }
+                else
+                {
+                    return BadRequest(new ResModel<bool> { Success = false, Message = "Note is not in Trash", Data = response });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResModel<bool> { Success = false, Message = ex.Message, Data = false });
+            }
+        }
+
+    }
 }
 

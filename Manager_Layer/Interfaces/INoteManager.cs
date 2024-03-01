@@ -13,6 +13,10 @@ namespace Manager_Layer.Interfaces
 
         public List<NoteEntity> DisplayNotes(int userId);
         public NoteEntity UpdateNote(int noteId, string newNoteDescription, string newNoteText);
+        public bool IsArchive(int noteId);
+        public bool IsPin(int noteId);
+        public bool IsTrash(int noteId);
+
 
     }
 }
