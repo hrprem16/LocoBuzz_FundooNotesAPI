@@ -1,4 +1,6 @@
 ﻿using System;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using Common_Layer.RequestModels;
 using Repository_Layer.Context;
 using Repository_Layer.Entity;
@@ -124,12 +126,14 @@ namespace Repository_Layer.Services
 
             return null; // Return null if the note with the specified ID is not found
         }
-        public bool IsArchive(int noteId)
+        public bool IsArchive(int userId,int noteId)
         {
-            var findNotes = context.NoteSTable.FirstOrDefault(e => e.NoteId == noteId);
-            if (findNotes != null)
+            var filterUser = context.NoteSTable.Where(a => a.UserId == userId);
+            
+            if (filterUser != null)
             {
-               
+                var findNotes = filterUser.FirstOrDefault(e => e.NoteId == noteId);
+
                 if (findNotes.IsArchive == false)
                 {
                     findNotes.IsArchive = true;
@@ -149,12 +153,14 @@ namespace Repository_Layer.Services
                 throw new Exception("Note Note Found");
             }
         }
-        public bool IsPin(int noteId)
+        public bool IsPin(int userId,int noteId)
         {
-            var findNotes = context.NoteSTable.FirstOrDefault(e => e.NoteId == noteId);
-            if (findNotes != null)
+            var filterUser = context.NoteSTable.Where(a => a.UserId == userId);
+
+           
+            if (filterUser != null)
             {
-                
+                var findNotes = filterUser.FirstOrDefault(e => e.NoteId == noteId);
                 if (findNotes.IsPin == false)
                 {
                     findNotes.IsPin = true;
@@ -174,12 +180,12 @@ namespace Repository_Layer.Services
                 throw new Exception("Note not pinned yet");
             }
         }
-        public bool IsTrash(int noteId)
+        public bool IsTrash(int userId,int noteId)
         {
-            var findNotes = context.NoteSTable.FirstOrDefault(e => e.NoteId == noteId);
-            if (findNotes != null)
+            var filterUser = context.NoteSTable.Where(a => a.UserId == userId);
+            if (filterUser != null)
             {
-                
+                var findNotes = filterUser.FirstOrDefault(e => e.NoteId == noteId);
                 if (findNotes.IsTrash == false)
                 {
                     findNotes.IsTrash = true;
@@ -199,6 +205,73 @@ namespace Repository_Layer.Services
                 throw new Exception("Note not found in Trash");
             }
         }
+
+        public string Colour(int userId,int noteId,string colour)
+        {
+            var filterUser = context.NoteSTable.Where(a => a.UserId == userId);
+            if (filterUser != null)
+            {
+                var findNotes = filterUser.FirstOrDefault(e => e.NoteId == noteId);
+                if (findNotes != null)
+                {
+                    findNotes.Colour = colour;
+                    context.SaveChanges();
+                    return findNotes.Colour;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public string UploadImage(string filePath, int userId,int noteId)
+        {
+            try
+            {
+                var filterUser = context.NoteSTable.Where(a => a.UserId == userId);
+
+                if (filterUser != null)
+                {
+                    var findNotes = filterUser.FirstOrDefault(e => e.NoteId == noteId);
+                    if (findNotes != null)
+                    {
+                        Account account = new Account("dz2emvokk", "734452883777881", "RRlJONvtfnLJZgviiyDH3Lf-ufQ");
+                        Cloudinary cloudinary = new Cloudinary(account);
+                        ImageUploadParams uploadParams = new ImageUploadParams()
+                        {
+                            File = new FileDescription(filePath),
+                            PublicId = findNotes.NoteTitle
+                        };
+                        ImageUploadResult uploadResult = cloudinary.Upload(uploadParams);
+
+                        findNotes.UpdatedAt = DateTime.Now;
+                        findNotes.Image = uploadResult.Url.ToString();
+                        context.SaveChanges();
+
+                        return findNotes.Image;
+
+                    }
+                    return null;
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
+
+       
     }
 
     
