@@ -34,6 +34,20 @@ namespace Manager_Layer.Services
             return this.noteRepository.UpdateNote(noteId, newNoteDescription, newNoteText);
         }
 
+        public bool IsArchive(int noteId)
+        {
+            return this.noteRepository.IsArchive(noteId);
+        }
+        public bool IsPin(int noteId)
+        {
+            return this.noteRepository.IsPin(noteId);
+        }
+        public bool IsTrash(int noteId)
+        {
+            return this.noteRepository.IsTrash(noteId);
+        }
+
+
     }
 }
 

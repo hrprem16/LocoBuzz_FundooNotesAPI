@@ -21,7 +21,7 @@ namespace Repository_Layer.Services
                 NoteEntity note = new NoteEntity();
 
                 note.UserId = user.UserId;
-                note.NoteText = addNote.NoteText;
+                note.NoteTitle = addNote.NoteTitle;
                 note.NoteDescription = addNote.NoteDescription;
                 note.Colour = addNote.Colour;
                 note.IsArchive = addNote.IsArchive;
@@ -105,7 +105,9 @@ namespace Repository_Layer.Services
                 {
                     // Update the properties
                     updateNote.NoteDescription = newNoteDescription;
-                    updateNote.NoteText = newNoteText;
+                    updateNote.NoteTitle = newNoteText;
+
+                    updateNote.UpdatedAt = DateTime.UtcNow;
 
                     // Update the entity in the database
                     context.NoteSTable.Update(updateNote);
@@ -122,7 +124,83 @@ namespace Repository_Layer.Services
 
             return null; // Return null if the note with the specified ID is not found
         }
+        public bool IsArchive(int noteId)
+        {
+            var findNotes = context.NoteSTable.FirstOrDefault(e => e.NoteId == noteId);
+            if (findNotes != null)
+            {
+               
+                if (findNotes.IsArchive == false)
+                {
+                    findNotes.IsArchive = true;
+                    context.SaveChanges();
+                    return findNotes.IsArchive;
+                }
+                else
+                {
+                    findNotes.IsArchive = false;
+                    context.SaveChanges();
+                    return findNotes.IsArchive;
 
+                }
+            }
+            else
+            {
+                throw new Exception("Note Note Found");
+            }
+        }
+        public bool IsPin(int noteId)
+        {
+            var findNotes = context.NoteSTable.FirstOrDefault(e => e.NoteId == noteId);
+            if (findNotes != null)
+            {
+                
+                if (findNotes.IsPin == false)
+                {
+                    findNotes.IsPin = true;
+                    context.SaveChanges();
+                    return findNotes.IsPin;
+                }
+                else
+                {
+                    findNotes.IsPin = false;
+                    context.SaveChanges();
+                    return findNotes.IsPin;
+
+                }
+            }
+            else
+            {
+                throw new Exception("Note not pinned yet");
+            }
+        }
+        public bool IsTrash(int noteId)
+        {
+            var findNotes = context.NoteSTable.FirstOrDefault(e => e.NoteId == noteId);
+            if (findNotes != null)
+            {
+                
+                if (findNotes.IsTrash == false)
+                {
+                    findNotes.IsTrash = true;
+                    context.SaveChanges();
+                    return findNotes.IsTrash;
+                }
+                else
+                {
+                    findNotes.IsTrash = false;
+                    context.SaveChanges();
+                    return findNotes.IsTrash;
+
+                }
+            }
+            else
+            {
+                throw new Exception("Note not found in Trash");
+            }
+        }
     }
+
+    
 }
 

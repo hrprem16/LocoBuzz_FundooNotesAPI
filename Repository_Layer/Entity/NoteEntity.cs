@@ -11,13 +11,13 @@ namespace Repository_Layer.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int NoteId { get; set; }
 
-        public string NoteText { get; set; }
+        public string NoteTitle { get; set; }
         public string NoteDescription { get; set;}
         public string Colour { get; set; }
         public string Image { get; set; }
-        public string IsArchive { get; set; }
-        public string IsPin { get; set; }
-        public string IsTrash { get; set; }
+        public bool IsArchive { get; set; }
+        public bool IsPin { get; set; }
+        public bool IsTrash { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
