@@ -1,23 +1,23 @@
 ﻿using Repository_Layer.Context;
 using Microsoft.EntityFrameworkCore;
-using Repository_Layer.Interfaces;
 using Manager_Layer.Interfaces;
 using Manager_Layer.Services;
+using Repository_Layer.Interfaces;
 using Repository_Layer.Services;
 using MassTransit;
+using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-//
 var config = builder.Configuration;
 
 // Add services to the container.
+builder.Services.AddControllers();
 builder.Services.AddDbContext<FundoContext>(x => x.UseSqlServer(builder.Configuration["ConnectionStrings:dbconnection"]));
 
-// Source:- https://codepedia.info/jwt-authentication-in-aspnet-core-web-api-token
+//source: https://www.infoworld.com/article/3650668/implement-authorization-for-swagger-in-aspnet-core.html
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -38,18 +38,7 @@ builder.Services.AddAuthentication(x =>
     };
 });
 
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IUserManager, UserManager>();
-builder.Services.AddTransient<INoteManager, NoteManager>();
-builder.Services.AddTransient<INoteRepository, NoteRepository>();
-builder.Services.AddControllers();
-
-
-
-// Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddDbContext<FundoContext>(x => x.UseSqlServer(builder.Configuration["ConnectionStrings:FundoAppdb"]));
-
+//add MassTransit functionality in the code.
 builder.Services.AddMassTransit(x =>
 {
     x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(config =>
@@ -64,16 +53,10 @@ builder.Services.AddMassTransit(x =>
 });
 builder.Services.AddMassTransitHostedService();
 
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
-//builder.Services.AddSwaggerGen(c => {
-//    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-//    c.IgnoreObsoleteActions();
-//    c.IgnoreObsoleteProperties();
-//    c.CustomSchemaIds(type => type.FullName);
-//});
+
+//source: https://www.infoworld.com/article/3650668/implement-authorization-for-swagger-in-aspnet-core.html
 builder.Services.AddSwaggerGen(option =>
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "FundoNotes API", Version = "v1" });
@@ -102,13 +85,24 @@ builder.Services.AddSwaggerGen(option =>
     });
 });
 
+builder.Services.AddTransient<IUserManager, UserManager>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<INoteManager, NoteManager>();
+builder.Services.AddTransient<INoteRepository, NoteRepository>();
+builder.Services.AddTransient<ILabelManager, LabelManager>();
+builder.Services.AddTransient<ILabelRepository, LabelRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    });
 }
 
 app.UseHttpsRedirection();
@@ -118,6 +112,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
 
 
 

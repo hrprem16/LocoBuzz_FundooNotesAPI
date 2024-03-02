@@ -12,7 +12,7 @@ using Repository_Layer.Context;
 namespace RepositoryLayer.Migrations
 {
     [DbContext(typeof(FundoContext))]
-    [Migration("20240229105019_initial")]
+    [Migration("20240301124652_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -24,6 +24,33 @@ namespace RepositoryLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Repository_Layer.Entity.LabelEntity", b =>
+                {
+                    b.Property<int>("LabelId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LabelId"));
+
+                    b.Property<string>("LabelName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NoteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LabelId");
+
+                    b.HasIndex("NoteId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("LabelTable");
+                });
 
             modelBuilder.Entity("Repository_Layer.Entity.NoteEntity", b =>
                 {
@@ -101,6 +128,25 @@ namespace RepositoryLayer.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("UserTable");
+                });
+
+            modelBuilder.Entity("Repository_Layer.Entity.LabelEntity", b =>
+                {
+                    b.HasOne("Repository_Layer.Entity.NoteEntity", "LabelFor")
+                        .WithMany()
+                        .HasForeignKey("NoteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Repository_Layer.Entity.UserEntity", "LabelBy")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("LabelBy");
+
+                    b.Navigation("LabelFor");
                 });
 
             modelBuilder.Entity("Repository_Layer.Entity.NoteEntity", b =>

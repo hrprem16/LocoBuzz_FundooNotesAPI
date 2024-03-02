@@ -261,11 +261,13 @@ namespace Repository_Layer.Services
                 }
                 else
                 {
+                    //if user not found
                     return null;
                 }
             }
             catch
             {
+                // throw exception if user not found
                 throw;
             }
 

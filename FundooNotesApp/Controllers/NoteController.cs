@@ -127,12 +127,14 @@ namespace FundooNotesApp.Controllers
 		[Authorize]
 		[HttpPut]
 		[Route("NoteArchive")]
-		public ActionResult NoteArchive(int userid,int noteId)
+		public ActionResult NoteArchive(int noteId)
 		{
 			try
 			{
-				var response = noteManager.IsArchive(userid,noteId);
-				if (response != null)
+                var userId = Convert.ToInt32(User.FindFirst("UserId").Value);
+
+				var response = noteManager.IsArchive(userId, noteId);
+;				if (response != null)
 				{
                     return Ok(new ResModel<bool> { Success = true, Message = "Note Archive SuccessFully", Data = response });
                 }
@@ -151,11 +153,12 @@ namespace FundooNotesApp.Controllers
         [Authorize]
         [HttpPut]
         [Route("NotePin")]
-        public ActionResult NotePin(int userid, int noteId)
+        public ActionResult NotePin(int noteId)
         {
             try
             {
-                var response = noteManager.IsPin(userid, noteId);
+                var userId = Convert.ToInt32(User.FindFirst("UserId").Value);
+                var response = noteManager.IsPin(userId, noteId);
                 if (response != null)
                 {
                     return Ok(new ResModel<bool> { Success = true, Message = "Note has been Pinned", Data = response });
@@ -175,11 +178,12 @@ namespace FundooNotesApp.Controllers
         [Authorize]
         [HttpPut]
         [Route("NoteTrash")]
-        public ActionResult NoteTrash(int userid, int noteId)
+        public ActionResult NoteTrash(int noteId)
         {
             try
             {
-                var response = noteManager.IsTrash(userid, noteId);
+                var userId = Convert.ToInt32(User.FindFirst("UserId").Value);
+                var response = noteManager.IsTrash(userId, noteId);
                 if (response != null)
                 {
                     return Ok(new ResModel<bool> { Success = true, Message = "Note has been  Trashed", Data = response });
@@ -199,11 +203,12 @@ namespace FundooNotesApp.Controllers
 		[Authorize]
 		[HttpPut]
 		[Route("UploadImage")]
-		public ActionResult UploadImage(string filePath, int userId, int noteId)
+		public ActionResult UploadImage(string filePath,int noteId)
 		{
 			try
 			{
-				var response = noteManager.UploadImage(filePath, userId, noteId);
+                var userId = Convert.ToInt32(User.FindFirst("UserId").Value);
+                var response = noteManager.UploadImage(filePath, userId, noteId);
 				if (response != null)
 				{
 					return Ok(new ResModel<string> { Success = true, Message = "Image is Uploaded", Data = response });

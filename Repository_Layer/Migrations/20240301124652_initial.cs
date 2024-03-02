@@ -55,6 +55,43 @@ namespace RepositoryLayer.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "LabelTable",
+                columns: table => new
+                {
+                    LabelId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LabelName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    NoteId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LabelTable", x => x.LabelId);
+                    table.ForeignKey(
+                        name: "FK_LabelTable_NoteSTable_NoteId",
+                        column: x => x.NoteId,
+                        principalTable: "NoteSTable",
+                        principalColumn: "NoteId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_LabelTable_UserTable_UserId",
+                        column: x => x.UserId,
+                        principalTable: "UserTable",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LabelTable_NoteId",
+                table: "LabelTable",
+                column: "NoteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LabelTable_UserId",
+                table: "LabelTable",
+                column: "UserId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_NoteSTable_UserId",
                 table: "NoteSTable",
@@ -64,6 +101,9 @@ namespace RepositoryLayer.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "LabelTable");
+
             migrationBuilder.DropTable(
                 name: "NoteSTable");
 
