@@ -85,6 +85,7 @@ builder.Services.AddSwaggerGen(option =>
     });
 });
 
+//Add Dependencies 
 builder.Services.AddTransient<IUserManager, UserManager>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<INoteManager, NoteManager>();

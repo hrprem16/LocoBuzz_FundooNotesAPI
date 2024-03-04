@@ -23,15 +23,20 @@ namespace Repository_Layer.Services
 
 				if (findNote != null)
 				{
-					LabelEntity labelEntity = new LabelEntity();
-					labelEntity.LabelName = labelName;
-					labelEntity.NoteId = noteId;
-					labelEntity.UserId = userId;
+					if(context.LabelTable.FirstOrDefault(a => a.LabelName == labelName) != null)
+					{
+						LabelEntity labelEntity = new LabelEntity();
+                        context.LabelTable.Add(labelEntity);
+                        context.SaveChanges();
+                        return labelEntity;
+                    }
+					else
+					{
+						throw new Exception("Label is already present");
+					}
 
 
-					context.LabelTable.Add(labelEntity);
-					context.SaveChanges();
-					return labelEntity;
+					
 				}
 				else
 				{
@@ -67,6 +72,60 @@ namespace Repository_Layer.Services
 				throw new Exception("Label is not Exist");
 			}
 
+		}
+
+		public HashSet<string> GetAllLabels(int userId)
+		{
+			try
+			{
+				var finduser = context.LabelTable.Where(a => a.UserId == userId).ToList();
+
+				if (finduser != null)
+				{
+					HashSet<string> lablename = new HashSet<string>();
+					foreach (var i in finduser)
+					{
+						lablename.Add(i.LabelName);
+					}
+					return lablename;
+					//                      OR
+					//var labels = context.LabelTable.Where(a => a.UserId == userId).Select(label => label.LabelName).GroupBy(label=>label.LabelName).ToList();
+
+					//return labels;
+
+				}
+				else
+				{
+					throw new Exception("Label doesn't exist");
+				}
+			}
+			catch
+			{
+				throw;
+			}
+
+		}
+
+		public bool DeleteLabel(int userId, int labelId)
+		{
+			try
+			{
+                var filternote = context.LabelTable.FirstOrDefault(a => a.LabelId == labelId);
+                if (filternote != null)
+                {
+                    context.LabelTable.Remove(filternote);
+                    context.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+			catch
+			{
+				throw new Exception("Label doesn't exist!");
+			}
 		}
 	}
 }

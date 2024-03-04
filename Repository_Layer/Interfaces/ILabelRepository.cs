@@ -8,6 +8,8 @@ namespace Repository_Layer.Interfaces
 	{
         public LabelEntity AddLabel(string labelName, int userId, int noteId);
         public LabelEntity LabelUpdate(string newLabelName, int noteId, int labelId);
+        public HashSet<string> GetAllLabels(int userId);
+        public bool DeleteLabel(int userId, int labelId);
 
     }
 }

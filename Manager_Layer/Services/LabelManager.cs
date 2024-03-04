@@ -23,6 +23,15 @@ namespace Manager_Layer.Services
         {
             return labelRepository.LabelUpdate(newLabelName, noteId, labelId);
         }
+
+        public HashSet<string> GetAllLabels(int userId)
+        {
+            return labelRepository.GetAllLabels(userId);
+        }
+        public bool DeleteLabel(int userId, int labelId)
+        {
+            return labelRepository.DeleteLabel(userId,labelId);
+        }
     }
 }
 

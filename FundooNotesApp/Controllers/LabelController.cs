@@ -71,7 +71,56 @@ namespace FundooNotesApp.Controllers
             }
         }
 
+        [Authorize]
+        [HttpGet]
+        [Route("GetAllLabels")]
+        public ActionResult GetAllLabel()
+        {
+            var userId = Convert.ToInt32(User.FindFirst("UserId").Value);
+            try
+            {
 
+                var response = labelManager.GetAllLabels(userId);
+                if (response != null)
+                {
+                    return Ok(new ResModel<HashSet<string>> { Success = true, Message = "Display all Label Successfully", Data = response });
+                }
+                else
+                {
+                    return BadRequest(new ResModel<HashSet<string>> { Success = true,Message="Display all label failed",Data=response });
+                }
+
+            }
+            catch
+            {
+                return BadRequest(new ResModel<HashSet<string>> { Success = true, Message = "Display all label failed", Data = null });
+            }
+        }
+        [Authorize]
+        [HttpDelete]
+        [Route("DeleteLabel")]
+        public ActionResult DeleteLabel(int labelId)
+        {
+            var userId = Convert.ToInt32(User.FindFirst("UserId").Value);
+
+            try
+            {
+                var response = labelManager.DeleteLabel(userId, labelId);
+                if (response != null)
+                {
+                    return Ok(new ResModel<bool> { Success = true ,Message="Delete Label Successfully",Data=true});
+                }
+                else
+                {
+                    return BadRequest(new ResModel<bool> { Success = false, Message = "Delete Label Failed!", Data = false });
+                }
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(new ResModel<bool> { Success = false, Message = ex.Message, Data = false });
+            }
+        }
+        
 	}
 }
            
