@@ -8,6 +8,7 @@ using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repository_Layer.Entity;
+using Serilog;
 
 namespace FundooNotesApp.Controllers
 {
@@ -27,6 +28,7 @@ namespace FundooNotesApp.Controllers
 		[Route("Reg")]
 		public ActionResult Register(RegisterModel model)
 		{
+			//Log.Information("Regiter User");
 			try
 			{
 				var response = userManager.UserRegistration(model);

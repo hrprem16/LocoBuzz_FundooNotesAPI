@@ -1,0 +1,17 @@
+2024-03-05 06:56:12.630 +05:30 [INF] This is the logger 
+2024-03-05 06:56:59.016 +05:30 [INF] Regiter User
+2024-03-05 06:57:48.966 +05:30 [INF] Regiter User
+2024-03-05 06:58:38.387 +05:30 [INF] Regiter User
+2024-03-05 07:06:09.644 +05:30 [INF] AddingLabel Starts
+2024-03-05 07:07:50.966 +05:30 [INF] AddingLabel Starts
+2024-03-05 07:11:28.539 +05:30 [INF] AddingLabel Starts
+2024-03-05 07:11:43.427 +05:30 [INF] This is the logger 
+2024-03-05 07:12:21.840 +05:30 [INF] AddingLabel Starts
+2024-03-05 07:15:12.421 +05:30 [INF] This is the logger 
+2024-03-05 07:15:43.833 +05:30 [INF] AddingLabel Starts
+2024-03-05 07:15:56.413 +05:30 [INF] AddingLabel Starts
+2024-03-05 07:16:10.791 +05:30 [INF] AddingLabel Starts
+2024-03-05 08:59:09.227 +05:30 [INF] This is the logger 
+2024-03-05 09:05:04.898 +05:30 [INF] This is the logger 
+2024-03-05 09:21:26.473 +05:30 [INF] This is the logger 
+2024-03-05 11:29:20.685 +05:30 [INF] This is the logger 

@@ -1,0 +1,23 @@
+2024-03-04 16:18:25.612 +05:30 [INF] This is the logger 
+2024-03-04 16:26:59.773 +05:30 [INF] This is the logger 
+2024-03-04 16:32:10.461 +05:30 [INF] This is the logger 
+2024-03-04 16:32:41.856 +05:30 [INF] Regiter User
+2024-03-04 17:02:05.332 +05:30 [INF] This is the logger 
+2024-03-04 17:02:19.769 +05:30 [INF] This is the logger 
+2024-03-04 17:52:25.637 +05:30 [INF] This is the logger 
+2024-03-04 17:52:39.170 +05:30 [INF] This is the logger 
+2024-03-04 17:55:28.301 +05:30 [INF] This is the logger 
+2024-03-04 17:55:34.711 +05:30 [INF] This is the logger 
+2024-03-04 17:57:49.836 +05:30 [INF] This is the logger 
+2024-03-04 17:57:57.897 +05:30 [INF] This is the logger 
+2024-03-04 17:58:16.366 +05:30 [INF] This is the logger 
+2024-03-04 18:00:08.061 +05:30 [INF] This is the logger 
+2024-03-04 18:03:08.813 +05:30 [INF] This is the logger 
+2024-03-04 18:04:11.737 +05:30 [INF] This is the logger 
+2024-03-04 18:04:50.998 +05:30 [INF] This is the logger 
+2024-03-04 18:07:45.468 +05:30 [INF] This is the logger 
+2024-03-04 18:08:30.541 +05:30 [INF] This is the logger 
+2024-03-04 18:09:19.945 +05:30 [INF] This is the logger 
+2024-03-04 18:10:55.714 +05:30 [INF] This is the logger 
+2024-03-04 18:11:03.630 +05:30 [INF] This is the logger 
+2024-03-04 18:12:55.525 +05:30 [INF] This is the logger 

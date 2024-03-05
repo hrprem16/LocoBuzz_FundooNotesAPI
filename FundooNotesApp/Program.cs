@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -92,7 +93,19 @@ builder.Services.AddTransient<INoteManager, NoteManager>();
 builder.Services.AddTransient<INoteRepository, NoteRepository>();
 builder.Services.AddTransient<ILabelManager, LabelManager>();
 builder.Services.AddTransient<ILabelRepository, LabelRepository>();
+builder.Services.AddTransient<ICollabRepository, CollabRepository>();
+builder.Services.AddTransient<ICollabManager, CollabManager>();
 
+//Add SeriLog
+Log.Logger = new LoggerConfiguration()
+    //.MinimumLevel.Debug()
+    //.WriteTo.Console()
+    //.WriteTo.File("Logs/LogValue.txt", rollingInterval: RollingInterval.Day)
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger();
+builder.Host.UseSerilog();
+Log.Information("\n<--------------------->");
+Log.Information("This is the logger ");
 
 var app = builder.Build();
 

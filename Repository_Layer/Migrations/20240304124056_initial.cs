@@ -52,7 +52,34 @@ namespace RepositoryLayer.Migrations
                         column: x => x.UserId,
                         principalTable: "UserTable",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CollabTable",
+                columns: table => new
+                {
+                    CollabId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CollabEmailId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    NoteId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CollabTable", x => x.CollabId);
+                    table.ForeignKey(
+                        name: "FK_CollabTable_NoteSTable_NoteId",
+                        column: x => x.NoteId,
+                        principalTable: "NoteSTable",
+                        principalColumn: "NoteId",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_CollabTable_UserTable_UserId",
+                        column: x => x.UserId,
+                        principalTable: "UserTable",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,14 +100,24 @@ namespace RepositoryLayer.Migrations
                         column: x => x.NoteId,
                         principalTable: "NoteSTable",
                         principalColumn: "NoteId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_LabelTable_UserTable_UserId",
                         column: x => x.UserId,
                         principalTable: "UserTable",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CollabTable_NoteId",
+                table: "CollabTable",
+                column: "NoteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CollabTable_UserId",
+                table: "CollabTable",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_LabelTable_NoteId",
@@ -101,6 +138,9 @@ namespace RepositoryLayer.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "CollabTable");
+
             migrationBuilder.DropTable(
                 name: "LabelTable");
 

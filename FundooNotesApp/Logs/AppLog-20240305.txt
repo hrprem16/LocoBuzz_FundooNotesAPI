@@ -1,0 +1,157 @@
+2024-03-05 11:42:11 [INF] 
+<--------------------->
+2024-03-05 11:42:11 [INF] This is the logger 
+2024-03-05 11:42:11 [INF] User profile is available. Using '/Users/prince/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-05 11:42:12 [INF] Now listening on: https://localhost:7242
+2024-03-05 11:42:12 [INF] Now listening on: http://localhost:5268
+2024-03-05 11:42:12 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 11:42:12 [INF] Hosting environment: Development
+2024-03-05 11:42:12 [INF] Content root path: /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp
+2024-03-05 11:42:13 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/index.html - null null
+2024-03-05 11:42:13 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/index.html - 200 null text/html;charset=utf-8 80.2887ms
+2024-03-05 11:42:13 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - null null
+2024-03-05 11:42:13 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 60.2287ms
+2024-03-05 11:42:36 [INF] Request starting HTTP/2 POST https://localhost:7242/api/User/Login - application/json 66
+2024-03-05 11:42:36 [INF] Executing endpoint 'FundooNotesApp.Controllers.UserController.Login (FundooNotesApp)'
+2024-03-05 11:42:36 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Login(Common_Layer.RequestModels.LoginModel) on controller FundooNotesApp.Controllers.UserController (FundooNotesApp).
+2024-03-05 11:42:36 [INF] Executed DbCommand (22ms) [Parameters=[@__model_UserEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[FName], [u].[LName], [u].[UserEmail], [u].[UserPassword]
+FROM [UserTable] AS [u]
+WHERE [u].[UserEmail] = @__model_UserEmail_0
+2024-03-05 11:42:36 [INF] Executing OkObjectResult, writing value of type 'Common_Layer.ResponseModel.ResModel`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-05 11:42:37 [INF] Executed action FundooNotesApp.Controllers.UserController.Login (FundooNotesApp) in 931.8471ms
+2024-03-05 11:42:37 [INF] Executed endpoint 'FundooNotesApp.Controllers.UserController.Login (FundooNotesApp)'
+2024-03-05 11:42:37 [INF] Request finished HTTP/2 POST https://localhost:7242/api/User/Login - 200 null application/json; charset=utf-8 1002.4126ms
+2024-03-05 14:41:28 [INF] 
+<--------------------->
+2024-03-05 14:41:28 [INF] This is the logger 
+2024-03-05 14:41:29 [INF] User profile is available. Using '/Users/prince/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-05 14:41:29 [INF] Now listening on: https://localhost:7242
+2024-03-05 14:41:29 [INF] Now listening on: http://localhost:5268
+2024-03-05 14:41:29 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 14:41:29 [INF] Hosting environment: Development
+2024-03-05 14:41:29 [INF] Content root path: /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp
+2024-03-05 14:41:30 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/index.html - null null
+2024-03-05 14:41:30 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/index.html - 200 null text/html;charset=utf-8 83.4176ms
+2024-03-05 14:41:30 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - null null
+2024-03-05 14:41:31 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 84.9006ms
+2024-03-05 14:42:44 [INF] Request starting HTTP/2 POST https://localhost:7242/api/User/Login - application/json 75
+2024-03-05 14:42:44 [INF] Executing endpoint 'FundooNotesApp.Controllers.UserController.Login (FundooNotesApp)'
+2024-03-05 14:42:44 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Login(Common_Layer.RequestModels.LoginModel) on controller FundooNotesApp.Controllers.UserController (FundooNotesApp).
+2024-03-05 14:42:44 [INF] Executed DbCommand (17ms) [Parameters=[@__model_UserEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[FName], [u].[LName], [u].[UserEmail], [u].[UserPassword]
+FROM [UserTable] AS [u]
+WHERE [u].[UserEmail] = @__model_UserEmail_0
+2024-03-05 14:42:45 [INF] Executing OkObjectResult, writing value of type 'Common_Layer.ResponseModel.ResModel`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-05 14:42:45 [INF] Executed action FundooNotesApp.Controllers.UserController.Login (FundooNotesApp) in 921.3477ms
+2024-03-05 14:42:45 [INF] Executed endpoint 'FundooNotesApp.Controllers.UserController.Login (FundooNotesApp)'
+2024-03-05 14:42:45 [INF] Request finished HTTP/2 POST https://localhost:7242/api/User/Login - 200 null application/json; charset=utf-8 985.2553ms
+2024-03-05 14:44:12 [INF] Request starting HTTP/2 PUT https://localhost:7242/Collab/UpdateNoteByCollaborator?noteId=1 - application/json 58
+2024-03-05 14:44:12 [INF] Executing endpoint 'FundooNotesApp.Controllers.CollabController.UpdateCollab (FundooNotesApp)'
+2024-03-05 14:44:12 [INF] Route matched with {action = "UpdateCollab", controller = "Collab"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult UpdateCollab(Common_Layer.RequestModels.UpdateCollabModel, Int32) on controller FundooNotesApp.Controllers.CollabController (FundooNotesApp).
+2024-03-05 14:44:12 [INF] Executed DbCommand (9ms) [Parameters=[@__noteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[CollabId], [c].[CollabEmailId], [c].[NoteId], [c].[UserId]
+FROM [CollabTable] AS [c]
+WHERE [c].[NoteId] = @__noteId_0
+2024-03-05 14:44:12 [INF] Executing BadRequestObjectResult, writing value of type 'Common_Layer.ResponseModel.ResModel`1[[Repository_Layer.Entity.NoteEntity, Repository_Layer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-05 14:44:12 [INF] Executed action FundooNotesApp.Controllers.CollabController.UpdateCollab (FundooNotesApp) in 94.551ms
+2024-03-05 14:44:12 [INF] Executed endpoint 'FundooNotesApp.Controllers.CollabController.UpdateCollab (FundooNotesApp)'
+2024-03-05 14:44:12 [INF] Request finished HTTP/2 PUT https://localhost:7242/Collab/UpdateNoteByCollaborator?noteId=1 - 400 null application/json; charset=utf-8 172.0527ms
+2024-03-05 14:46:25 [INF] 
+<--------------------->
+2024-03-05 14:46:25 [INF] This is the logger 
+2024-03-05 14:46:25 [INF] User profile is available. Using '/Users/prince/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-05 14:46:25 [INF] Now listening on: https://localhost:7242
+2024-03-05 14:46:25 [INF] Now listening on: http://localhost:5268
+2024-03-05 14:46:25 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 14:46:25 [INF] Hosting environment: Development
+2024-03-05 14:46:25 [INF] Content root path: /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp
+2024-03-05 14:46:27 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/index.html - null null
+2024-03-05 14:46:27 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/index.html - 200 null text/html;charset=utf-8 93.7362ms
+2024-03-05 14:46:27 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - null null
+2024-03-05 14:46:27 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 60.8169ms
+2024-03-05 14:46:52 [INF] Request starting HTTP/2 PUT https://localhost:7242/Collab/UpdateNoteByCollaborator?noteId=1 - application/json 57
+2024-03-05 14:46:52 [INF] Executing endpoint 'FundooNotesApp.Controllers.CollabController.UpdateCollab (FundooNotesApp)'
+2024-03-05 14:46:52 [INF] Route matched with {action = "UpdateCollab", controller = "Collab"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult UpdateCollab(Common_Layer.RequestModels.UpdateCollabModel, Int32) on controller FundooNotesApp.Controllers.CollabController (FundooNotesApp).
+2024-03-05 14:46:53 [INF] Executed DbCommand (25ms) [Parameters=[@__noteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[CollabId], [c].[CollabEmailId], [c].[NoteId], [c].[UserId]
+FROM [CollabTable] AS [c]
+WHERE [c].[NoteId] = @__noteId_0
+2024-03-05 14:46:53 [INF] Executing BadRequestObjectResult, writing value of type 'Common_Layer.ResponseModel.ResModel`1[[Repository_Layer.Entity.NoteEntity, Repository_Layer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-05 14:46:53 [INF] Executed action FundooNotesApp.Controllers.CollabController.UpdateCollab (FundooNotesApp) in 652.1668ms
+2024-03-05 14:46:53 [INF] Executed endpoint 'FundooNotesApp.Controllers.CollabController.UpdateCollab (FundooNotesApp)'
+2024-03-05 14:46:53 [INF] Request finished HTTP/2 PUT https://localhost:7242/Collab/UpdateNoteByCollaborator?noteId=1 - 400 null application/json; charset=utf-8 764.2834ms
+2024-03-05 14:54:44 [INF] Request starting HTTP/2 PUT https://localhost:7242/Collab/UpdateNoteByCollaborator?noteId=2 - application/json 57
+2024-03-05 14:54:44 [INF] Executing endpoint 'FundooNotesApp.Controllers.CollabController.UpdateCollab (FundooNotesApp)'
+2024-03-05 14:54:44 [INF] Route matched with {action = "UpdateCollab", controller = "Collab"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult UpdateCollab(Common_Layer.RequestModels.UpdateCollabModel, Int32) on controller FundooNotesApp.Controllers.CollabController (FundooNotesApp).
+2024-03-05 14:54:44 [INF] Executed DbCommand (2ms) [Parameters=[@__noteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[CollabId], [c].[CollabEmailId], [c].[NoteId], [c].[UserId]
+FROM [CollabTable] AS [c]
+WHERE [c].[NoteId] = @__noteId_0
+2024-03-05 14:54:44 [INF] Executed DbCommand (6ms) [Parameters=[@__noteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[NoteId], [n].[Colour], [n].[CreatedAt], [n].[Image], [n].[IsArchive], [n].[IsPin], [n].[IsTrash], [n].[NoteDescription], [n].[NoteTitle], [n].[UpdatedAt], [n].[UserId]
+FROM [NoteSTable] AS [n]
+WHERE [n].[NoteId] = @__noteId_0
+2024-03-05 14:54:44 [INF] Executed DbCommand (10ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [NoteSTable] SET [Colour] = @p0, [CreatedAt] = @p1, [Image] = @p2, [IsArchive] = @p3, [IsPin] = @p4, [IsTrash] = @p5, [NoteDescription] = @p6, [NoteTitle] = @p7, [UpdatedAt] = @p8, [UserId] = @p9
+OUTPUT 1
+WHERE [NoteId] = @p10;
+2024-03-05 14:54:44 [INF] Executing OkObjectResult, writing value of type 'Common_Layer.ResponseModel.ResModel`1[[Repository_Layer.Entity.NoteEntity, Repository_Layer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-05 14:54:44 [INF] Executed action FundooNotesApp.Controllers.CollabController.UpdateCollab (FundooNotesApp) in 152.3137ms
+2024-03-05 14:54:44 [INF] Executed endpoint 'FundooNotesApp.Controllers.CollabController.UpdateCollab (FundooNotesApp)'
+2024-03-05 14:54:44 [INF] Request finished HTTP/2 PUT https://localhost:7242/Collab/UpdateNoteByCollaborator?noteId=2 - 200 null application/json; charset=utf-8 213.6533ms
+2024-03-05 16:11:52 [INF] 
+<--------------------->
+2024-03-05 16:11:52 [INF] This is the logger 
+2024-03-05 16:11:52 [INF] User profile is available. Using '/Users/prince/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-05 16:11:52 [INF] Now listening on: https://localhost:7242
+2024-03-05 16:11:52 [INF] Now listening on: http://localhost:5268
+2024-03-05 16:11:52 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 16:11:52 [INF] Hosting environment: Development
+2024-03-05 16:11:52 [INF] Content root path: /Users/prince/Desktop/Locobuzz Training/DotNet Framework Api/FundoNotesWebAPI/FundooNotesApp
+2024-03-05 16:11:54 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/index.html - null null
+2024-03-05 16:11:54 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/index.html - 200 null text/html;charset=utf-8 94.3672ms
+2024-03-05 16:11:54 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/swagger-ui-bundle.js - null null
+2024-03-05 16:11:54 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-03-05 16:11:54 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 69.0875ms
+2024-03-05 16:11:54 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - null null
+2024-03-05 16:11:54 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 69.5723ms
+2024-03-05 16:12:36 [INF] Request starting HTTP/2 POST https://localhost:7242/api/User/Login - application/json 66
+2024-03-05 16:12:36 [INF] Executing endpoint 'FundooNotesApp.Controllers.UserController.Login (FundooNotesApp)'
+2024-03-05 16:12:36 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Login(Common_Layer.RequestModels.LoginModel) on controller FundooNotesApp.Controllers.UserController (FundooNotesApp).
+2024-03-05 16:12:37 [INF] Executed DbCommand (22ms) [Parameters=[@__model_UserEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[FName], [u].[LName], [u].[UserEmail], [u].[UserPassword]
+FROM [UserTable] AS [u]
+WHERE [u].[UserEmail] = @__model_UserEmail_0
+2024-03-05 16:12:37 [INF] Executing OkObjectResult, writing value of type 'Common_Layer.ResponseModel.ResModel`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-05 16:12:37 [INF] Executed action FundooNotesApp.Controllers.UserController.Login (FundooNotesApp) in 945.9849ms
+2024-03-05 16:12:37 [INF] Executed endpoint 'FundooNotesApp.Controllers.UserController.Login (FundooNotesApp)'
+2024-03-05 16:12:37 [INF] Request finished HTTP/2 POST https://localhost:7242/api/User/Login - 200 null application/json; charset=utf-8 1043.2562ms
+2024-03-05 16:12:49 [INF] Request starting HTTP/2 DELETE https://localhost:7242/Collab/Remove Collaborator?collabId=1 - null null
+2024-03-05 16:12:49 [INF] Executing endpoint 'FundooNotesApp.Controllers.CollabController.RemoveCollab (FundooNotesApp)'
+2024-03-05 16:12:49 [INF] Route matched with {action = "RemoveCollab", controller = "Collab"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult RemoveCollab(Int32) on controller FundooNotesApp.Controllers.CollabController (FundooNotesApp).
+2024-03-05 16:12:49 [INF] Executed DbCommand (23ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[CollabId], [c].[CollabEmailId], [c].[NoteId], [c].[UserId]
+FROM [CollabTable] AS [c]
+WHERE [c].[UserId] = @__userId_0
+2024-03-05 16:12:49 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [CollabTable]
+OUTPUT 1
+WHERE [CollabId] = @p0;
+2024-03-05 16:12:49 [INF] Executing OkObjectResult, writing value of type 'Common_Layer.ResponseModel.ResModel`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-05 16:12:49 [INF] Executed action FundooNotesApp.Controllers.CollabController.RemoveCollab (FundooNotesApp) in 104.6905ms
+2024-03-05 16:12:49 [INF] Executed endpoint 'FundooNotesApp.Controllers.CollabController.RemoveCollab (FundooNotesApp)'
+2024-03-05 16:12:49 [INF] Request finished HTTP/2 DELETE https://localhost:7242/Collab/Remove Collaborator?collabId=1 - 200 null application/json; charset=utf-8 199.2833ms
+2024-03-05 16:17:56 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/index.html - null null
+2024-03-05 16:17:56 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/index.html - 200 null text/html;charset=utf-8 130.8992ms
+2024-03-05 16:17:57 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - null null
+2024-03-05 16:17:57 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 39.2717ms
+2024-03-05 16:18:39 [INF] Request starting HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - null null
+2024-03-05 16:18:39 [INF] Request finished HTTP/2 GET https://localhost:7242/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 75.7425ms
+2024-03-05 16:18:39 [INF] Request starting HTTP/2 GET https://localhost:7242/favicon.ico - null null
+2024-03-05 16:18:39 [INF] Request finished HTTP/2 GET https://localhost:7242/favicon.ico - 404 0 null 1.6798ms
+2024-03-05 16:18:39 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7242/favicon.ico, Response status code: 404

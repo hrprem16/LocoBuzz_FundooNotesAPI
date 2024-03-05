@@ -6,22 +6,22 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Repository_Layer/Migrations/20240304123830_initial2.Designer.cs">
     <Files>
       <File FileName="../Repository_Layer/Class1.cs" />
       <File FileName="../Manager_Layer/Class1.cs" />
       <File FileName="../Common_Layer/Class1.cs" />
       <File FileName="../Repository_Layer/Entity/UserEntity.cs" />
-      <File FileName="../Repository_Layer/Context/FundoContext.cs" Line="16" Column="38" />
-      <File FileName="appsettings.json" Line="14" Column="13" />
-      <File FileName="Program.cs" Line="55" Column="35" />
+      <File FileName="../Repository_Layer/Context/FundoContext.cs" />
+      <File FileName="appsettings.json" />
+      <File FileName="Program.cs" />
       <File FileName="../Repository_Layer/Services/UserRepository.cs" />
       <File FileName="../Repository_Layer/Interfaces/IUserRepository.cs" />
       <File FileName="../Common_Layer/RequestModels/RegisterModel.cs" />
       <File FileName="../Manager_Layer/Interfaces/IUserManager.cs" />
-      <File FileName="../Manager_Layer/Services/UserManager.cs" Line="1" Column="1" />
+      <File FileName="../Manager_Layer/Services/UserManager.cs" />
       <File FileName="Properties/launchSettings.json" />
-      <File FileName="Controllers/UserController.cs" Line="130" Column="3" />
+      <File FileName="Controllers/UserController.cs" />
       <File FileName="../Common_Layer/ResponseModel/ResModel.cs" />
       <File FileName="../Common_Layer/RequestModels/LoginModel.cs" />
       <File FileName="../Common_Layer/Utility/Send.cs" />
@@ -29,23 +29,28 @@
       <File FileName="../Common_Layer/RequestModels/ResetPasswordModel.cs" />
       <File FileName="../Repository_Layer/Entity/NoteEntity.cs" />
       <File FileName="../Repository_Layer/Interfaces/INoteRepository.cs" />
-      <File FileName="../Repository_Layer/Services/NoteRepository.cs" Line="277" Column="6" />
+      <File FileName="../Repository_Layer/Services/NoteRepository.cs" />
       <File FileName="../Common_Layer/RequestModels/DeleteNoteModel.cs" />
       <File FileName="../Manager_Layer/Interfaces/INoteManager.cs" />
-      <File FileName="../Manager_Layer/Services/NoteManager.cs" Line="53" Column="1" />
-      <File FileName="Controllers/NoteController.cs" Line="13" Column="14" />
+      <File FileName="../Manager_Layer/Services/NoteManager.cs" />
+      <File FileName="Controllers/NoteController.cs" />
       <File FileName="Controllers/WeatherForecastController.cs" />
       <File FileName="../Common_Layer/RequestModels/AddNoteModel.cs" />
-      <File FileName="../Repository_Layer/Migrations/FundoContextModelSnapshot.cs" />
-      <File FileName="../Repository_Layer/Entity/LabelEntity.cs" Line="31" Column="9" />
-      <File FileName="../Repository_Layer/Migrations/20240301124652_initial.Designer.cs" />
-      <File FileName="../Repository_Layer/Migrations/20240301124652_initial.cs" />
-      <File FileName="../Repository_Layer/Services/LabelRepository.cs" Line="18" Column="72" />
-      <File FileName="../Repository_Layer/Interfaces/ILabelRepository.cs" Line="9" Column="80" />
-      <File FileName="../Common_Layer/RequestModels/AddLabel.cs" />
-      <File FileName="../Manager_Layer/Interfaces/ILabelManager.cs" Line="9" Column="80" />
-      <File FileName="../Manager_Layer/Services/LabelManager.cs" Line="21" Column="6" />
-      <File FileName="Controllers/LabelController.cs" Line="24" Column="19" />
+      <File FileName="../Repository_Layer/Migrations/FundoContextModelSnapshot.cs" Line="183" Column="1" />
+      <File FileName="../Repository_Layer/Entity/LabelEntity.cs" Line="18" Column="1" />
+      <File FileName="../Repository_Layer/Migrations/20240301124652_initial.cs" Line="107" Column="27" />
+      <File FileName="../Repository_Layer/Services/LabelRepository.cs" />
+      <File FileName="../Repository_Layer/Interfaces/ILabelRepository.cs" />
+      <File FileName="../Manager_Layer/Interfaces/ILabelManager.cs" />
+      <File FileName="../Manager_Layer/Services/LabelManager.cs" />
+      <File FileName="Controllers/LabelController.cs" />
+      <File FileName="../Repository_Layer/Entity/CollaboratorEntity.cs" Line="33" Column="1" />
+      <File FileName="../Repository_Layer/Services/CollabRepository.cs" />
+      <File FileName="Logs/LogValue20240304.txt" />
+      <File FileName="../Repository_Layer/Migrations/20240304123008_initial2.Designer.cs" Line="185" Column="7" />
+      <File FileName="../Repository_Layer/Migrations/20240304123451_initial2.Designer.cs" Line="202" Column="21" />
+      <File FileName="../Repository_Layer/Migrations/20240304123830_initial2.Designer.cs" Line="179" Column="31" />
+      <File FileName="../Repository_Layer/Migrations/20240304123830_initial2.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -55,8 +60,11 @@
               <Node name="RequestModels" expanded="True" />
             </Node>
             <Node name="FundooNotesApp">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Controllers" expanded="True" />
-              <Node name="Program.cs" selected="True" />
+              <Node name="Logs" expanded="True" />
             </Node>
             <Node name="Manager_Layer">
               <Node name="Interfaces" expanded="True" />
@@ -65,8 +73,6 @@
             <Node name="Repository_Layer">
               <Node name="Context" expanded="True" />
               <Node name="Entity" expanded="True" />
-              <Node name="Interfaces" expanded="True" />
-              <Node name="Migrations" expanded="True" />
               <Node name="Services" expanded="True" />
             </Node>
           </Node>

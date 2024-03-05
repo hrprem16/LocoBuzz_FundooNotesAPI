@@ -5,6 +5,7 @@ using Manager_Layer.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repository_Layer.Entity;
+using Serilog;
 
 namespace FundooNotesApp.Controllers
 {
@@ -26,9 +27,10 @@ namespace FundooNotesApp.Controllers
 
         public ActionResult AddingLabel(string LabelName,int noteId)
         {
-
+            //Log.Information("AddingLabel Starts");
             try
             {
+               
                 var userId = Convert.ToInt32(User.FindFirst("UserId").Value);
                 var response = labelManager.AddLabel(LabelName, userId, noteId);
                 if (response != null)

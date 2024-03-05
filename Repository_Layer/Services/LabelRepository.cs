@@ -23,9 +23,15 @@ namespace Repository_Layer.Services
 
 				if (findNote != null)
 				{
-					if(context.LabelTable.FirstOrDefault(a => a.LabelName == labelName) != null)
+					if(context.LabelTable.FirstOrDefault(a => a.LabelName == labelName) == null)
 					{
-						LabelEntity labelEntity = new LabelEntity();
+                      
+                        LabelEntity labelEntity = new LabelEntity();
+                        labelEntity.LabelName = labelName;
+                        labelEntity.NoteId = noteId;
+                        labelEntity.UserId = userId;
+
+
                         context.LabelTable.Add(labelEntity);
                         context.SaveChanges();
                         return labelEntity;

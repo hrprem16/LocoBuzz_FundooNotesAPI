@@ -12,7 +12,7 @@ using Repository_Layer.Context;
 namespace RepositoryLayer.Migrations
 {
     [DbContext(typeof(FundoContext))]
-    [Migration("20240301124652_initial")]
+    [Migration("20240304124056_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -24,6 +24,33 @@ namespace RepositoryLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Repository_Layer.Entity.CollaboratorEntity", b =>
+                {
+                    b.Property<int>("CollabId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CollabId"));
+
+                    b.Property<string>("CollabEmailId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NoteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CollabId");
+
+                    b.HasIndex("NoteId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CollabTable");
+                });
 
             modelBuilder.Entity("Repository_Layer.Entity.LabelEntity", b =>
                 {
@@ -130,18 +157,37 @@ namespace RepositoryLayer.Migrations
                     b.ToTable("UserTable");
                 });
 
+            modelBuilder.Entity("Repository_Layer.Entity.CollaboratorEntity", b =>
+                {
+                    b.HasOne("Repository_Layer.Entity.NoteEntity", "CollabTo")
+                        .WithMany()
+                        .HasForeignKey("NoteId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Repository_Layer.Entity.UserEntity", "CollabBy")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("CollabBy");
+
+                    b.Navigation("CollabTo");
+                });
+
             modelBuilder.Entity("Repository_Layer.Entity.LabelEntity", b =>
                 {
                     b.HasOne("Repository_Layer.Entity.NoteEntity", "LabelFor")
                         .WithMany()
                         .HasForeignKey("NoteId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Repository_Layer.Entity.UserEntity", "LabelBy")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("LabelBy");
@@ -154,7 +200,7 @@ namespace RepositoryLayer.Migrations
                     b.HasOne("Repository_Layer.Entity.UserEntity", "NotesUser")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("NotesUser");
